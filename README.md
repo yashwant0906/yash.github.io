@@ -1,4 +1,4 @@
-# yash.github.io
+# Yash Kumar
 
 Personal site of Yashwant: my vision of AI and the work behind it.
 
