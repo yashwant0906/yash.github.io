@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yashwant</title>
-<meta name="description" content="Yashwant builds small, open language models and the agentic systems that put them to work.">
+<meta name="description" content="Yashwant: Head of Sales – Asia, founder of Airavat AI, and researcher on long-horizon, self-improving agents. Based in Kuala Lumpur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -41,7 +41,9 @@
   header { padding: 80px 0 56px; }
   .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
   h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 12px 0 20px; letter-spacing: -.025em; }
-  .lede { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0; }
+  .lede { font-size: 20px; color: var(--muted); max-width: 660px; margin: 0; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; font-size: 15px; color: var(--muted); }
+  .meta b { color: var(--text); font-weight: 600; }
   .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .btn { display: inline-block; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 15px; font-weight: 500; }
   .btn:hover { text-decoration: none; border-color: var(--accent); }
@@ -49,11 +51,12 @@
 
   section { padding: 56px 0; border-top: 1px solid var(--border); }
   h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -.015em; }
-  .section-intro { color: var(--muted); max-width: 640px; margin: 0 0 36px; font-size: 17px; }
+  .section-intro { color: var(--muted); max-width: 660px; margin: 0 0 36px; font-size: 17px; }
 
-  .principles { counter-reset: p; }
+  .thesis { font-size: clamp(22px, 3.2vw, 28px); line-height: 1.35; font-weight: 600; letter-spacing: -.01em; max-width: 720px; margin: 0 0 36px; padding-left: 20px; border-left: 4px solid var(--accent); }
   .principle { display: grid; grid-template-columns: 56px 1fr; gap: 8px 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
   .principle:last-child { border-bottom: 0; }
+  .principles { counter-reset: p; }
   .principle::before { counter-increment: p; content: "0" counter(p); font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 15px; padding-top: 4px; }
   .principle h3 { margin: 0 0 6px; font-size: 20px; }
   .principle p { margin: 0; color: var(--muted); max-width: 640px; }
@@ -62,8 +65,12 @@
   .project { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 20px; }
   .project-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin-bottom: 8px; }
   .project h3 { margin: 0; font-size: 22px; }
-  .project > p { color: var(--muted); margin: 0 0 20px; max-width: 680px; }
+  .project > p { color: var(--muted); margin: 0 0 16px; max-width: 680px; }
+  .project > p:last-child { margin-bottom: 0; }
+  .project ul { color: var(--muted); margin: 0 0 16px; padding-left: 20px; max-width: 680px; }
+  .project li { margin-bottom: 4px; }
   .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .tag.muted { background: var(--chip); color: var(--muted); }
 
   .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
   .fact { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
@@ -78,15 +85,31 @@
   .results td:last-child { color: var(--accent); font-weight: 600; }
   .note { font-size: 14px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 12px; margin: 0 0 20px; max-width: 520px; }
 
+  .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 16px; }
+  .loop span { background: var(--chip); border-radius: 6px; padding: 3px 10px; font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .loop span.key { background: var(--accent-soft); color: var(--accent); }
+  .loop i { color: var(--muted); font-style: normal; font-size: 13px; }
+
   .patterns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
   .patterns a { display: block; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; color: var(--text); font-size: 15px; font-weight: 500; }
   .patterns a:hover { border-color: var(--accent); text-decoration: none; }
   .patterns span { display: block; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent); }
   .project .more { font-weight: 500; font-size: 15px; }
 
+  .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--border); }
+  .timeline li { position: relative; padding: 0 0 28px 28px; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); }
+  .timeline li.now::before { background: var(--accent); border-color: var(--accent); }
+  .timeline .when { font-size: 13px; font-family: "JetBrains Mono", monospace; color: var(--accent); }
+  .timeline h3 { margin: 2px 0 4px; font-size: 18px; }
+  .timeline p { margin: 0; color: var(--muted); max-width: 640px; }
+  .expertise { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .expertise span { border: 1px solid var(--border); border-radius: 99px; padding: 4px 12px; font-size: 14px; }
+
   footer { border-top: 1px solid var(--border); padding: 40px 0 56px; }
   footer h2 { font-size: 24px; }
-  footer p { color: var(--muted); margin: 0 0 20px; }
+  footer p { color: var(--muted); margin: 0 0 20px; max-width: 640px; }
 
   @media (max-width: 720px) {
     nav ul { gap: 14px; font-size: 14px; }
@@ -107,17 +130,22 @@
     <ul>
       <li><a href="#vision">Vision</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#career">Career</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="wrap">
   <div class="eyebrow">Hi, I'm Yashwant</div>
-  <h1>I build small, open language models and the agentic systems that put them to work.</h1>
-  <p class="lede">I think useful AI comes from the right-sized model in a well-designed system, not only from the biggest model available. My work is about making that practical, and about backing claims with evidence.</p>
+  <h1>I've spent my career on the infrastructure enterprises run on. Now I'm building it for AI.</h1>
+  <p class="lede">I lead sales across Asia for data-centre infrastructure lifecycle services. Alongside that, I founded Airavat AI, a micro AI lab working on private AI infrastructure and on agents that can work for longer, learn, and improve themselves.</p>
+  <div class="meta">
+    <span><b>Head of Sales – Asia</b>, Evernex</span>
+    <span><b>Founder</b>, Airavat AI</span>
+    <span>Kuala Lumpur</span>
+  </div>
   <div class="links">
-    <a class="btn primary" href="#work">See my work</a>
+    <a class="btn primary" href="#vision">My vision of AI</a>
     <a class="btn" href="https://github.com/yashwant0906">GitHub</a>
     <a class="btn" href="https://huggingface.co/Airavat-ai">Hugging Face</a>
   </div>
@@ -126,35 +154,35 @@
 <section id="vision">
   <div class="wrap">
     <h2>My vision of AI</h2>
-    <p class="section-intro">Four ideas guide what I build.</p>
+    <p class="thesis">The next frontier isn't parameter count. It's how long an agent can work, learn and improve on its own.</p>
 
     <div class="principles">
       <div class="principle">
         <div>
-          <h3>Right-size the model to the step</h3>
-          <p>Most steps in a real AI system are small: route this, check that, classify the other. A compact model can do them locally, cheaply and privately. Frontier models should be kept for the steps that need them.</p>
-          <p class="proof">In practice: <a href="#erawan">Erawan 1</a>, a 1.7B model.</p>
+          <h3>Horizon over size</h3>
+          <p>Bigger models have diminishing returns. What changes what AI can do is how long an agent can stay on a task: keeping context, recovering from mistakes, and finishing work that takes hours or days rather than seconds.</p>
+          <p class="proof">In practice: my <a href="#research">long-horizon model framework</a>.</p>
         </div>
       </div>
       <div class="principle">
         <div>
-          <h3>Workflows first, autonomy when it's earned</h3>
-          <p>Agents are powerful, but predictable structure usually wins. Start with the simplest pattern that works, and give the model control only when the task can't be written down in advance.</p>
-          <p class="proof">In practice: <a href="#agentic-workflows">Agentic Workflows</a>, six patterns from fixed pipelines to autonomous agents.</p>
+          <h3>Agents that improve themselves</h3>
+          <p>The most capable systems will generate their own learning signal. They propose tasks, build the scaffolding to attempt them, and turn the results into training data, so they keep getting better after they ship.</p>
+          <p class="proof">In practice: the self-improvement loop at the core of the framework.</p>
         </div>
       </div>
       <div class="principle">
         <div>
-          <h3>Open and portable, no lock-in</h3>
-          <p>Models and tools should work across providers and on your own hardware. The same code should run on a hosted API or on a model on your laptop.</p>
-          <p class="proof">In practice: Apache 2.0 weights, and workflows that run on Claude, OpenAI or a local model.</p>
+          <h3>AI that companies can own</h3>
+          <p>Regulated businesses can't send their most sensitive data to someone else's cloud. They need AI running on infrastructure they control. The hardware exists; the software layer that makes it usable is the missing piece.</p>
+          <p class="proof">In practice: <a href="#airavat">Airavat AI</a>, private AI infrastructure for regulated mid-market companies.</p>
         </div>
       </div>
       <div class="principle">
         <div>
-          <h3>Claims you can check</h3>
-          <p>AI results should come with sample sizes and reproducible evaluations, not just headline numbers. If a result can't be checked, it shouldn't be claimed.</p>
-          <p class="proof">In practice: Erawan's early results are published with their sample sizes, and full benchmarks come next.</p>
+          <h3>Small, open and checkable</h3>
+          <p>Right-sized models can run on hardware you own, open weights and portable code avoid lock-in, and results should come with the evidence to verify them.</p>
+          <p class="proof">In practice: <a href="#erawan">Erawan 1</a> and <a href="#agentic-workflows">Agentic Workflows</a>.</p>
         </div>
       </div>
     </div>
@@ -164,14 +192,33 @@
 <section id="work">
   <div class="wrap">
     <h2>Work</h2>
-    <p class="section-intro">Projects that put these ideas into practice.</p>
+    <p class="section-intro">What I'm building at Airavat AI, and the open work behind it.</p>
+
+    <article class="project" id="airavat">
+      <div class="project-head">
+        <h3>Airavat AI</h3>
+        <span class="tag">Micro AI lab</span>
+      </div>
+      <p>A micro AI lab building private AI infrastructure for regulated mid-market companies in Southeast Asia. The idea is proven enterprise hardware paired with the software layer that turns it into a private AI platform: models, agents and tooling that run entirely on the customer's own infrastructure.</p>
+      <p>It builds on what I've seen from years of selling infrastructure in the region: many companies want AI but can't adopt it on terms that satisfy their regulators.</p>
+    </article>
+
+    <article class="project" id="research">
+      <div class="project-head">
+        <h3>Long-horizon model framework</h3>
+        <span class="tag muted">Research · in progress</span>
+      </div>
+      <p>The design for a small model, 100M–500M parameters, built around a self-improvement loop instead of scale. It's trained in three stages: continued pretraining, mid-training and post-training.</p>
+      <div class="loop"><span>propose tasks</span><i>→</i><span>build scaffolds</span><i>→</i><span>generate rollouts</span><i>→</i><span class="key">learn via RL</span><i>↺</i></div>
+      <p>The bet is that a small model that keeps learning from its own work can outlast a large one that stops improving after training.</p>
+    </article>
 
     <article class="project" id="erawan">
       <div class="project-head">
         <h3>Erawan 1</h3>
-        <span class="tag">Language model</span>
+        <span class="tag">Open model</span>
       </div>
-      <p>A 1.7B-parameter model I fine-tuned from Qwen3-1.7B for reasoning and long-horizon agentic tasks, released through Airavat AI Micro Lab. It is small enough to run on modest hardware.</p>
+      <p>A 1.7B-parameter model I fine-tuned from Qwen3-1.7B for reasoning and long-horizon agentic tasks, released by Airavat AI. It is small enough to run on hardware you own.</p>
       <div class="facts">
         <div class="fact"><div class="k">Parameters</div><div class="v">1.75B</div></div>
         <div class="fact"><div class="k">Base model</div><div class="v">Qwen3-1.7B</div></div>
@@ -210,10 +257,49 @@
   </div>
 </section>
 
+<section id="career">
+  <div class="wrap">
+    <h2>Career</h2>
+    <p class="section-intro">A career building enterprise infrastructure businesses across Europe, the Middle East and Asia. I build territories from the ground up: defining the market, choosing the accounts and designing how to enter.</p>
+
+    <ol class="timeline">
+      <li class="now">
+        <div class="when">Jul 2026 – present</div>
+        <h3>Head of Sales – Asia, Evernex</h3>
+        <p>Leading sales across Asia (excluding India and Japan) from Kuala Lumpur, with offices in Malaysia, Singapore and Hong Kong. The team covers sales, business development, pre-sales and sales operations.</p>
+      </li>
+      <li>
+        <div class="when">Oct 2024 – Jul 2026</div>
+        <h3>Regional Sales Director – Southeast Asia, Evernex</h3>
+        <p>Built the Southeast Asia business: ideal customer profiles, account strategy and market-entry models for new countries.</p>
+      </li>
+      <li>
+        <div class="when">Earlier</div>
+        <h3>Regional Director – GCC &amp; CIS</h3>
+        <p>Led the business across the Gulf and CIS markets.</p>
+      </li>
+      <li>
+        <div class="when">Earlier</div>
+        <h3>Account Manager – UK &amp; Ireland</h3>
+        <p>Where I started, managing enterprise accounts.</p>
+      </li>
+    </ol>
+
+    <div class="expertise">
+      <span>Third-party maintenance</span>
+      <span>Hardware lifecycle</span>
+      <span>ITAD</span>
+      <span>Multi-vendor support</span>
+      <span>Market entry</span>
+      <span>Enterprise partnerships</span>
+    </div>
+  </div>
+</section>
+
 <footer id="contact">
   <div class="wrap">
-    <h2>Get in touch</h2>
-    <p>Interested in small models, agentic systems, or working together? Find me here.</p>
+    <h2>Let's talk</h2>
+    <p>I'm interested in AI infrastructure partnerships, long-horizon agents, and bringing private AI to regulated industries. If that's your world too, reach out.</p>
     <div class="links" style="margin-top:0">
       <a class="btn" href="https://github.com/yashwant0906">github.com/yashwant0906</a>
       <a class="btn" href="https://huggingface.co/Airavat-ai">huggingface.co/Airavat-ai</a>
