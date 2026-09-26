@@ -1,6 +1,7 @@
 # yash.github.io
 
-Personal site: agentic workflow patterns, live GitHub agents, and Erawan 1.
+Personal site of Yashwant: my vision of AI and the work behind it.
 
 - [`index.html`](index.html) — the site (single static page)
-- Workflow code lives in [yashwant0906/agentic-workflows](https://github.com/yashwant0906/Agentic-Workflows)
+- [Erawan 1](https://huggingface.co/Airavat-ai/erawan-1) — a 1.7B model fine-tuned from Qwen3
+- [Agentic-Workflows](https://github.com/yashwant0906/Agentic-Workflows) — agentic workflow patterns for Claude, OpenAI, or local LLMs
