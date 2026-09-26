@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yashwant · AI Engineering</title>
-<meta name="description" content="Agentic workflow patterns, live GitHub agents, and Erawan 1, a compact language model built on Qwen3.">
+<meta name="description" content="Agentic workflow patterns, live GitHub agents, and Erawan 1, a 1.7B model fine-tuned from Qwen3.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -76,6 +76,13 @@
   .fact .v { font-size: 22px; font-weight: 700; overflow-wrap: anywhere; }
   .note { font-size: 14px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 12px; }
 
+  .results { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 12px; }
+  .results caption { text-align: left; font-weight: 600; margin-bottom: 8px; }
+  .results th, .results td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: right; }
+  .results th:first-child, .results td:first-child { text-align: left; }
+  .results th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  .results td:last-child { color: var(--accent); font-weight: 600; }
+  .note + pre { margin-top: 16px; }
   pre { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.6; margin: 0; }
   footer { border-top: 1px solid var(--border); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
 
@@ -103,7 +110,7 @@
 <header class="wrap">
   <div class="eyebrow">AI Engineering</div>
   <h1>Agentic workflows, from pipelines to autonomous agents.</h1>
-  <p class="lede">Six working agent patterns, two agents that run on this repository, and <a href="#erawan">Erawan&nbsp;1</a>, a compact language model I built on Qwen3.</p>
+  <p class="lede">Six working agent patterns, two agents that run on this repository, and <a href="#erawan">Erawan&nbsp;1</a>, a 1.7B model I fine-tuned from Qwen3.</p>
 </header>
 
 <section id="workflows">
@@ -188,16 +195,25 @@
 <section id="erawan">
   <div class="wrap">
     <h2>Erawan 1</h2>
-    <p class="section-intro">A compact language model I built on Qwen3, designed to beat its 1.7B-parameter base while staying small enough to run on modest hardware.</p>
+    <p class="section-intro">A 1.7B-parameter model fine-tuned from Qwen3-1.7B for reasoning and agentic tasks, built at Airavat AI Micro Lab. It is small enough to run locally, which suits the cheap, high-volume steps in the workflows above: routing, gating and classification.</p>
     <div class="model">
       <div class="facts">
-        <div class="fact"><div class="k">Parameters</div><div class="v">1.7B</div></div>
-        <div class="fact"><div class="k">Base model</div><div class="v">Qwen3</div></div>
-        <div class="fact"><div class="k">Publisher</div><div class="v">Airavat AI</div></div>
-        <div class="fact"><div class="k">Weights</div><div class="v"><a href="https://huggingface.co/Airavat-ai/erawan-1">Hugging&nbsp;Face</a></div></div>
+        <div class="fact"><div class="k">Parameters</div><div class="v">1.75B</div></div>
+        <div class="fact"><div class="k">Base model</div><div class="v">Qwen3-1.7B</div></div>
+        <div class="fact"><div class="k">Context</div><div class="v">4,096</div></div>
+        <div class="fact"><div class="k">License</div><div class="v">Apache 2.0</div></div>
       </div>
       <div>
-        <p>Erawan 1 is a small model, so it can run locally or at the edge. That makes it a good fit for the low-effort steps in the workflows above, such as routing, gating and classification.</p>
+        <table class="results">
+          <caption>Early spot-check vs. Qwen3-1.7B</caption>
+          <thead><tr><th>Task</th><th>n</th><th>Base</th><th>Erawan 1</th></tr></thead>
+          <tbody>
+            <tr><td>GSM8K (maths)</td><td>10</td><td>1</td><td>3</td></tr>
+            <tr><td>HumanEval (code)</td><td>6</td><td>4</td><td>4</td></tr>
+            <tr><td>Glaive (tool use)</td><td>6</td><td>6</td><td>6</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Small samples. These are directional, not statistically significant. Full-benchmark results are to follow.</p>
         <pre><code>from transformers import AutoModelForCausalLM, AutoTokenizer
 
 tok = AutoTokenizer.from_pretrained("Airavat-ai/erawan-1")
