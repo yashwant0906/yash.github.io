@@ -1,28 +1,225 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yashwant</title>
+<meta name="description" content="Yashwant builds small, open language models and the agentic systems that put them to work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --text: #1c1917; --muted: #57534e;
+    --border: #e7e5e4; --accent: #c2410c; --accent-soft: #fff1e8; --chip: #f5f5f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+      --border: #292524; --accent: #fb923c; --accent-soft: #2a1a10; --chip: #292524;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0a09; --surface: #1c1917; --text: #f5f5f4; --muted: #a8a29e;
+    --border: #292524; --accent: #fb923c; --accent-soft: #2a1a10; --chip: #292524;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+  nav { border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; gap: 16px; }
+  nav .brand { font-weight: 700; color: var(--text); }
+  nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; font-size: 15px; }
+  nav ul a { color: var(--muted); }
+
+  header { padding: 80px 0 56px; }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 12px 0 20px; letter-spacing: -.025em; }
+  .lede { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .btn { display: inline-block; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 15px; font-weight: 500; }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -.015em; }
+  .section-intro { color: var(--muted); max-width: 640px; margin: 0 0 36px; font-size: 17px; }
+
+  .principles { counter-reset: p; }
+  .principle { display: grid; grid-template-columns: 56px 1fr; gap: 8px 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .principle:last-child { border-bottom: 0; }
+  .principle::before { counter-increment: p; content: "0" counter(p); font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 15px; padding-top: 4px; }
+  .principle h3 { margin: 0 0 6px; font-size: 20px; }
+  .principle p { margin: 0; color: var(--muted); max-width: 640px; }
+  .principle .proof { margin-top: 8px; font-size: 14px; }
+
+  .project { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 20px; }
+  .project-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; margin-bottom: 8px; }
+  .project h3 { margin: 0; font-size: 22px; }
+  .project > p { color: var(--muted); margin: 0 0 20px; max-width: 680px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  .fact { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .fact .k { font-size: 12.5px; color: var(--muted); }
+  .fact .v { font-size: 18px; font-weight: 700; overflow-wrap: anywhere; }
+
+  .results { width: 100%; max-width: 520px; border-collapse: collapse; font-size: 14px; margin-bottom: 10px; }
+  .results caption { text-align: left; font-weight: 600; margin-bottom: 6px; }
+  .results th, .results td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: right; }
+  .results th:first-child, .results td:first-child { text-align: left; }
+  .results th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  .results td:last-child { color: var(--accent); font-weight: 600; }
+  .note { font-size: 14px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 12px; margin: 0 0 20px; max-width: 520px; }
+
+  .patterns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .patterns a { display: block; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; color: var(--text); font-size: 15px; font-weight: 500; }
+  .patterns a:hover { border-color: var(--accent); text-decoration: none; }
+  .patterns span { display: block; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent); }
+  .project .more { font-weight: 500; font-size: 15px; }
+
+  footer { border-top: 1px solid var(--border); padding: 40px 0 56px; }
+  footer h2 { font-size: 24px; }
+  footer p { color: var(--muted); margin: 0 0 20px; }
+
+  @media (max-width: 720px) {
+    nav ul { gap: 14px; font-size: 14px; }
+    header { padding: 48px 0 40px; }
+    .lede { font-size: 18px; }
+    .principle { grid-template-columns: 1fr; gap: 4px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .patterns { grid-template-columns: 1fr 1fr; }
+    .project { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="./">Yashwant</a>
+    <ul>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="eyebrow">Hi, I'm Yashwant</div>
+  <h1>I build small, open language models and the agentic systems that put them to work.</h1>
+  <p class="lede">I think useful AI comes from the right-sized model in a well-designed system, not only from the biggest model available. My work is about making that practical, and about backing claims with evidence.</p>
+  <div class="links">
+    <a class="btn primary" href="#work">See my work</a>
+    <a class="btn" href="https://github.com/yashwant0906">GitHub</a>
+    <a class="btn" href="https://huggingface.co/Airavat-ai">Hugging Face</a>
+  </div>
+</header>
+
+<section id="vision">
+  <div class="wrap">
+    <h2>My vision of AI</h2>
+    <p class="section-intro">Four ideas guide what I build.</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div>
+          <h3>Right-size the model to the step</h3>
+          <p>Most steps in a real AI system are small: route this, check that, classify the other. A compact model can do them locally, cheaply and privately. Frontier models should be kept for the steps that need them.</p>
+          <p class="proof">In practice: <a href="#erawan">Erawan 1</a>, a 1.7B model.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div>
+          <h3>Workflows first, autonomy when it's earned</h3>
+          <p>Agents are powerful, but predictable structure usually wins. Start with the simplest pattern that works, and give the model control only when the task can't be written down in advance.</p>
+          <p class="proof">In practice: <a href="#agentic-workflows">Agentic Workflows</a>, six patterns from fixed pipelines to autonomous agents.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div>
+          <h3>Open and portable, no lock-in</h3>
+          <p>Models and tools should work across providers and on your own hardware. The same code should run on a hosted API or on a model on your laptop.</p>
+          <p class="proof">In practice: Apache 2.0 weights, and workflows that run on Claude, OpenAI or a local model.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div>
+          <h3>Claims you can check</h3>
+          <p>AI results should come with sample sizes and reproducible evaluations, not just headline numbers. If a result can't be checked, it shouldn't be claimed.</p>
+          <p class="proof">In practice: Erawan's early results are published with their sample sizes, and full benchmarks come next.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Work</h2>
+    <p class="section-intro">Projects that put these ideas into practice.</p>
+
+    <article class="project" id="erawan">
+      <div class="project-head">
+        <h3>Erawan 1</h3>
+        <span class="tag">Language model</span>
+      </div>
+      <p>A 1.7B-parameter model I fine-tuned from Qwen3-1.7B for reasoning and long-horizon agentic tasks, released through Airavat AI Micro Lab. It is small enough to run on modest hardware.</p>
+      <div class="facts">
+        <div class="fact"><div class="k">Parameters</div><div class="v">1.75B</div></div>
+        <div class="fact"><div class="k">Base model</div><div class="v">Qwen3-1.7B</div></div>
+        <div class="fact"><div class="k">Context</div><div class="v">4,096</div></div>
+        <div class="fact"><div class="k">License</div><div class="v">Apache 2.0</div></div>
+      </div>
+      <table class="results">
+        <caption>Early spot-check vs. Qwen3-1.7B</caption>
+        <thead><tr><th>Task</th><th>n</th><th>Base</th><th>Erawan 1</th></tr></thead>
+        <tbody>
+          <tr><td>GSM8K (maths)</td><td>10</td><td>1</td><td>3</td></tr>
+          <tr><td>HumanEval (code)</td><td>6</td><td>4</td><td>4</td></tr>
+          <tr><td>Glaive (tool use)</td><td>6</td><td>6</td><td>6</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Small samples. These results are directional, not statistically significant. Full-benchmark results are to follow.</p>
+      <a class="more" href="https://huggingface.co/Airavat-ai/erawan-1">Model card and downloads →</a>
+    </article>
+
+    <article class="project" id="agentic-workflows">
+      <div class="project-head">
+        <h3>Agentic Workflows</h3>
+        <span class="tag">Open source</span>
+      </div>
+      <p>Six runnable patterns for building LLM systems, from fixed pipelines to a fully autonomous agent. The same code runs on Claude, OpenAI, or a local model such as Erawan 1. Two of the patterns also run as live GitHub agents that triage issues and review pull requests.</p>
+      <div class="patterns">
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/01_prompt_chaining.py"><span>01</span>Prompt chaining</a>
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/02_routing.py"><span>02</span>Routing</a>
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/03_parallelization.py"><span>03</span>Parallelization</a>
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/04_orchestrator_workers.py"><span>04</span>Orchestrator-workers</a>
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/05_evaluator_optimizer.py"><span>05</span>Evaluator-optimizer</a>
+        <a href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/06_autonomous_agent.py"><span>06</span>Autonomous agent</a>
+      </div>
+      <a class="more" href="https://github.com/yashwant0906/Agentic-Workflows">View the repository →</a>
+    </article>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>Interested in small models, agentic systems, or working together? Find me here.</p>
+    <div class="links" style="margin-top:0">
+      <a class="btn" href="https://github.com/yashwant0906">github.com/yashwant0906</a>
+      <a class="btn" href="https://huggingface.co/Airavat-ai">huggingface.co/Airavat-ai</a>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
