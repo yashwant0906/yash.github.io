@@ -125,7 +125,7 @@
         <div class="flow"><span>outline</span><i>→</i><span class="key">gate</span><i>→</i><span>draft</span><i>→</i><span>edit</span></div>
         <p>A blog-post writer that works in fixed steps. A structured-output gate checks the outline before any tokens go to the draft.</p>
         <p class="when"><b>Use when</b> the task splits cleanly into fixed stages.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/01_prompt_chaining.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/01_prompt_chaining.py">View source →</a>
       </article>
 
       <article class="card">
@@ -133,7 +133,7 @@
         <div class="flow"><span>ticket</span><i>→</i><span class="key">classify</span><i>→</i><span>billing | tech | account | general</span></div>
         <p>A support-ticket router. A cheap, low-effort classifier picks a specialist, and each specialist has its own focused system prompt.</p>
         <p class="when"><b>Use when</b> inputs fall into distinct categories that need different handling.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/02_routing.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/02_routing.py">View source →</a>
       </article>
 
       <article class="card">
@@ -141,7 +141,7 @@
         <div class="flow"><span>security ∥ logic ∥ style</span><i>+</i><span class="key">3× vote</span></div>
         <p>A code reviewer. Three focused reviews run at once (sectioning), then three independent merge votes run and approval needs all three (voting).</p>
         <p class="when"><b>Use when</b> subtasks are independent, or you want more confidence from multiple samples.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/03_parallelization.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/03_parallelization.py">View source →</a>
       </article>
 
       <article class="card">
@@ -149,7 +149,7 @@
         <div class="flow"><span class="key">plan</span><i>→</i><span>worker × N</span><i>→</i><span>synthesize</span></div>
         <p>A research-brief generator. The orchestrator chooses the subtasks at runtime, workers handle them in parallel, and a synthesizer resolves any contradictions.</p>
         <p class="when"><b>Use when</b> you can't know the subtasks until you see the input.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/04_orchestrator_workers.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/04_orchestrator_workers.py">View source →</a>
       </article>
 
       <article class="card">
@@ -157,7 +157,7 @@
         <div class="flow"><span>generate</span><i>⇄</i><span class="key">evaluate</span><i>→</i><span>PASS</span></div>
         <p>A code generator paired with a strict reviewer. They loop on explicit criteria until the reviewer passes the code or the round limit is reached.</p>
         <p class="when"><b>Use when</b> success criteria are clear and iteration measurably helps.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/05_evaluator_optimizer.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/05_evaluator_optimizer.py">View source →</a>
       </article>
 
       <article class="card">
@@ -165,28 +165,28 @@
         <div class="flow"><span class="key">think</span><i>→</i><span>tool</span><i>→</i><span>observe</span><i>↺</i></div>
         <p>A data-analyst agent with sandboxed file access and a safe calculator. The tool-use loop is written out by hand, with a step budget and error recovery.</p>
         <p class="when"><b>Use when</b> the task is open-ended and the model has to choose its own steps.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/06_autonomous_agent.py">View source →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/06_autonomous_agent.py">View source →</a>
       </article>
     </div>
 
-    <p style="margin-top:24px"><a href="https://github.com/yashwant0906/agentic-workflows">Get the code: design notes and setup →</a></p>
+    <p style="margin-top:24px"><a href="https://github.com/yashwant0906/Agentic-Workflows">Get the code: design notes and setup →</a></p>
   </div>
 </section>
 
 <section id="agents">
   <div class="wrap">
     <h2>Live agents</h2>
-    <p class="section-intro">Two of these patterns run for real as GitHub Actions in the <a href="https://github.com/yashwant0906/agentic-workflows">agentic-workflows</a> repo, triggered by repository events.</p>
+    <p class="section-intro">Two of these patterns run for real as GitHub Actions in the <a href="https://github.com/yashwant0906/Agentic-Workflows">Agentic-Workflows</a> repo, triggered by repository events.</p>
     <div class="grid">
       <article class="card">
         <h3>Issue triage <span class="tag">routing</span></h3>
         <p>When an issue is opened, the agent classifies it, applies a label, summarizes it, and asks for any details a maintainer would need. Issue text is treated as untrusted input.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/.github/workflows/issue-triage.yml">View workflow →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/.github/workflows/issue-triage.yml">View workflow →</a>
       </article>
       <article class="card">
         <h3>PR review <span class="tag">evaluator</span></h3>
         <p>On every push to a pull request, the agent reviews the diff for bugs and security issues. It edits its own previous comment instead of posting a new one each time, and it never runs with secrets on fork PRs.</p>
-        <a class="src" href="https://github.com/yashwant0906/agentic-workflows/blob/main/.github/workflows/pr-review.yml">View workflow →</a>
+        <a class="src" href="https://github.com/yashwant0906/Agentic-Workflows/blob/main/.github/workflows/pr-review.yml">View workflow →</a>
       </article>
     </div>
   </div>
